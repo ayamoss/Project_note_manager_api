@@ -115,3 +115,23 @@ def delete_note(note_id):
     db.session.delete(note)
     db.session.commit()
     return jsonify({"message": "Заметка удалена"}), 204
+
+@bp.route('/', methods=['GET'])
+def index():
+    return jsonify({
+        "service": "Notes API",
+        "version": "1.0",
+        "endpoints": {
+            "categories": {
+                "POST /categories": "Создать категорию",
+                "GET /categories": "Список категорий"
+            },
+            "notes": {
+                "POST /notes": "Создать заметку",
+                "GET /notes": "Список заметок (пагинация, фильтр)",
+                "GET /notes/<id>": "Получить заметку",
+                "PUT /notes/<id>": "Обновить заметку",
+                "DELETE /notes/<id>": "Удалить заметку"
+            }
+        }
+    }), 200
