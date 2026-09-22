@@ -4,5 +4,6 @@ RUN pip install --no-cache-dir --upgrade pip
 COPY requirements.txt .
 RUN pip install --no-cache-dir -r requirements.txt
 COPY . .
+RUN chmod +x /app/entrypoint.sh
 EXPOSE 10000
-CMD gunicorn -b 0.0.0.0:$PORT run:app
+CMD ["/app/entrypoint.sh"]
