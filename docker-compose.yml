@@ -3,6 +3,7 @@ version: '3.8'
 services:
   web:
     build: .
+    container_name: notes-api
     ports:
       - "5000:5000"
     environment:
@@ -13,6 +14,7 @@ services:
 
   db:
     image: postgres:15
+    container_name: notes-postgres-compose
     environment:
       - POSTGRES_PASSWORD=mypassword
       - POSTGRES_DB=notes_db
