@@ -6,3 +6,6 @@ instance/
 *.db
 .pytest_cache/
 app.log
+migrations/**/__pycache__/
+scripts/.pytest_cache/
+scripts/app.log
